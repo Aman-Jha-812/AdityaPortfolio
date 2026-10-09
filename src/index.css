@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ivory text-ink font-sans antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif text-navy;
+    text-wrap: balance;
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl;
+  }
+
+  a {
+    @apply text-navy underline-offset-2;
+  }
+
+  a:hover {
+    @apply text-navy-light;
+  }
+
+  ::selection {
+    @apply bg-navy text-white;
+  }
+
+  /* Accessibility: visible focus ring */
+  :focus-visible {
+    outline: 2px solid theme('colors.navy.DEFAULT');
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  .container-reading {
+    @apply mx-auto w-full max-w-reading px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply font-sans text-xs font-semibold uppercase tracking-[0.18em] text-bronze-dark;
+  }
+
+  .link-underline {
+    @apply text-navy underline decoration-line decoration-1 underline-offset-4 transition-colors hover:decoration-bronze hover:text-navy-light;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-5 py-2.5 text-sm font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply btn bg-navy text-white hover:bg-navy-light hover:text-white;
+  }
+
+  .btn-outline {
+    @apply btn border border-navy/25 bg-transparent text-navy hover:border-navy hover:bg-navy/5 hover:text-navy;
+  }
+
+  .btn-quiet {
+    @apply btn border border-line bg-white text-ink hover:border-navy/40 hover:text-navy;
+  }
+
+  .rule {
+    @apply border-0 border-t border-line;
+  }
+
+  /* Long-form legal document typography */
+  .prose-legal {
+    @apply text-[0.975rem] leading-[1.75] text-ink;
+  }
+  .prose-legal p {
+    @apply my-4;
+  }
+  .prose-legal h3 {
+    @apply mb-2 mt-8 text-lg text-navy;
+  }
+  .prose-legal h4 {
+    @apply mb-2 mt-6 font-sans text-sm font-semibold uppercase tracking-wide text-navy;
+  }
+  .prose-legal ul,
+  .prose-legal ol {
+    @apply my-4 space-y-2 pl-6;
+  }
+  .prose-legal ul {
+    @apply list-disc;
+  }
+  .prose-legal ol {
+    @apply list-decimal;
+  }
+  .prose-legal a {
+    @apply link-underline;
+  }
+  .prose-legal strong {
+    @apply font-semibold text-ink;
+  }
+  .prose-legal table {
+    @apply my-6 w-full border-collapse text-left text-sm;
+  }
+  .prose-legal th,
+  .prose-legal td {
+    @apply border border-line px-3 py-2 align-top;
+  }
+  .prose-legal th {
+    @apply bg-ivory font-semibold text-navy;
+  }
+  .prose-legal blockquote {
+    @apply my-6 border-l-2 border-bronze pl-4 italic text-muted;
+  }
+  .prose-legal sup {
+    @apply text-[0.7em];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Print-friendly styling for document pages */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+  .print-document {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  a {
+    color: #000000;
+    text-decoration: underline;
+  }
+  .prose-legal a::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.75em;
+    color: #444;
+  }
+}

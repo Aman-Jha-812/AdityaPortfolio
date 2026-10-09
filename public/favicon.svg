@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Scales of justice monogram">
+  <rect width="64" height="64" rx="8" fill="#FAF9F6" stroke="#E5E3DF"/>
+  <g fill="none" stroke="#23364D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 12v34"/>
+    <path d="M20 50h24"/>
+    <path d="M14 20h36"/>
+    <path d="M14 20l-6 12a6 6 0 0 0 12 0z"/>
+    <path d="M50 20l-6 12a6 6 0 0 0 12 0z"/>
+  </g>
+  <circle cx="32" cy="10" r="2.4" fill="#A8875A"/>
+</svg>
